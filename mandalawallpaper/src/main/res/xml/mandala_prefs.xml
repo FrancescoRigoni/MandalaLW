@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="@string/pref_theme_value_automatic"
+        android:entries="@array/themeListEntries"
+        android:entryValues="@array/themeListValues"
+        android:key="@string/pref_theme_key"
+        android:title="@string/pref_theme" />
+
+    <CheckBoxPreference
+        android:key="@string/pref_fill_shapes_key"
+        android:defaultValue="false"
+        android:title="@string/pref_fill_shapes"></CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="@string/pref_random_cell_size_key"
+        android:defaultValue="false"
+        android:title="@string/pref_random_cell_size"></CheckBoxPreference>
+
+    <ListPreference
+        android:defaultValue="@string/pref_shape_value_squares"
+        android:entries="@array/shapesListEntries"
+        android:entryValues="@array/shapesListValues"
+        android:key="@string/pref_shape_key"
+        android:title="@string/pref_shape" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_cells_amount_normal"
+        android:entries="@array/amountListEntries"
+        android:entryValues="@array/amountListValues"
+        android:key="@string/pref_cells_amount_key"
+        android:title="@string/pref_cells_amount" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_spacing_value_normal"
+        android:entries="@array/spacingsListEntries"
+        android:entryValues="@array/spacingsListValues"
+        android:key="@string/pref_spacing_key"
+        android:title="@string/pref_spacing" />
+
+</PreferenceScreen> 

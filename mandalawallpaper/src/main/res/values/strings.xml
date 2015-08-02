@@ -1,8 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MandalaWallpaper</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Mandala Wallpaper Live</string>
+    <string name="set_wallpaper_now">Set Wallpaper Now</string>
+
+    <string name="pref_fill_shapes">Fill Shapes</string>
+    <string name="pref_fill_shapes_key">fill_shapes</string>
+
+    <string name="pref_random_cell_size">Random Cells Size</string>
+    <string name="pref_random_cell_size_key">random_cells_sizes</string>
+
+    <string name="pref_shape">Shape</string>
+    <string name="pref_shape_squares">Square</string>
+    <string name="pref_shape_circles">Circle</string>
+
+    <string name="pref_shape_key">shape</string>
+    <string name="pref_shape_value_squares">square</string>
+    <string name="pref_shape_value_circles">circle</string>
+
+    <string name="pref_spacing">Spacing</string>
+    <string name="pref_spacing_extreme">90%</string>
+    <string name="pref_spacing_large">75%</string>
+    <string name="pref_spacing_normal">50%</string>
+    <string name="pref_spacing_small">25%</string>
+    <string name="pref_spacing_nospacing">0%</string>
+
+    <string name="pref_spacing_key">cells_spacing</string>
+    <string name="pref_spacing_value_extreme">extreme</string>
+    <string name="pref_spacing_value_large">large</string>
+    <string name="pref_spacing_value_normal">normal</string>
+    <string name="pref_spacing_value_small">small</string>
+    <string name="pref_spacing_value_nospacing">nospacing</string>
+
+    <string name="pref_cells_amount">Cells amount</string>
+    <string name="pref_cells_amount_few">Few</string>
+    <string name="pref_cells_amount_normal">Normal</string>
+    <string name="pref_cells_amount_more">More</string>
+    <string name="pref_cells_amount_even_more">Even More</string>
+    <string name="pref_cells_amount_extreme">Extreme</string>
+
+    <string name="pref_cells_amount_key">cells_amount</string>
+    <string name="pref_cells_amount_value_few">few</string>
+    <string name="pref_cells_amount_value_normal">normal</string>
+    <string name="pref_cells_amount_value_more">more</string>
+    <string name="pref_cells_amount_value_even_more">even_more</string>
+    <string name="pref_cells_amount_value_extreme">extreme</string>
+
+    <string name="pref_theme">Theme</string>
+    <string name="pref_theme_ruby_red">Ruby Red</string>
+    <string name="pref_theme_vodoo_violet">Vodoo Violet</string>
+    <string name="pref_theme_barley_corn">Barley Corn</string>
+    <string name="pref_theme_silver_tree">Silver Tree</string>
+    <string name="pref_theme_grassy_green">Grassy Green</string>
+    <string name="pref_theme_ship_cove">Ship Cove</string>
+    <string name="pref_theme_indigo">Indigo</string>
+    <string name="pref_theme_vibrant_violet">Vibrant Violet</string>
+    <string name="pref_theme_automatic">Automatic</string>
+
+    <string name="pref_theme_key">theme</string>
+    <string name="pref_theme_value_ruby_red">ruby_red</string>
+    <string name="pref_theme_value_vodoo_violet">vodoo_violet</string>
+    <string name="pref_theme_value_barley_corn">barley_corn</string>
+    <string name="pref_theme_value_silver_tree">silver_tree</string>
+    <string name="pref_theme_value_grassy_green">grassy_green</string>
+    <string name="pref_theme_value_ship_cove">ship_cove</string>
+    <string name="pref_theme_value_indigo">indigo</string>
+    <string name="pref_theme_value_vivid_violet">vibrant_violet</string>
+    <string name="pref_theme_value_automatic">automatic</string>
 
 </resources>

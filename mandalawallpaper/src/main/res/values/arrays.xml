@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="shapesListEntries">
+        <item>@string/pref_shape_squares</item>
+        <item>@string/pref_shape_circles</item>
+    </string-array>
+
+    <string-array name="shapesListValues">
+        <item>@string/pref_shape_value_squares</item>
+        <item>@string/pref_shape_value_circles</item>
+    </string-array>
+
+    <string-array name="spacingsListEntries">
+        <item>@string/pref_spacing_nospacing</item>
+        <item>@string/pref_spacing_small</item>
+        <item>@string/pref_spacing_normal</item>
+        <item>@string/pref_spacing_large</item>
+        <item>@string/pref_spacing_extreme</item>
+    </string-array>
+
+    <string-array name="spacingsListValues">
+        <item>@string/pref_spacing_value_nospacing</item>
+        <item>@string/pref_spacing_value_small</item>
+        <item>@string/pref_spacing_value_normal</item>
+        <item>@string/pref_spacing_value_large</item>
+        <item>@string/pref_spacing_value_extreme</item>
+    </string-array>
+
+    <string-array name="amountListEntries">
+        <item>@string/pref_cells_amount_few</item>
+        <item>@string/pref_cells_amount_normal</item>
+        <item>@string/pref_cells_amount_more</item>
+        <item>@string/pref_cells_amount_even_more</item>
+        <item>@string/pref_cells_amount_extreme</item>
+    </string-array>
+
+    <string-array name="amountListValues">
+        <item>@string/pref_cells_amount_value_few</item>
+        <item>@string/pref_cells_amount_value_normal</item>
+        <item>@string/pref_cells_amount_value_more</item>
+        <item>@string/pref_cells_amount_value_even_more</item>
+        <item>@string/pref_cells_amount_value_extreme</item>
+    </string-array>
+
+    <string-array name="themeListEntries">
+        <item>@string/pref_theme_ruby_red</item>
+        <item>@string/pref_theme_vodoo_violet</item>
+        <item>@string/pref_theme_barley_corn</item>
+        <item>@string/pref_theme_silver_tree</item>
+        <item>@string/pref_theme_grassy_green</item>
+        <item>@string/pref_theme_ship_cove</item>
+        <item>@string/pref_theme_indigo</item>
+        <item>@string/pref_theme_vibrant_violet</item>
+        <item>@string/pref_theme_automatic</item>
+    </string-array>
+
+    <string-array name="themeListValues">
+        <item>@string/pref_theme_value_ruby_red</item>
+        <item>@string/pref_theme_value_vodoo_violet</item>
+        <item>@string/pref_theme_value_barley_corn</item>
+        <item>@string/pref_theme_value_silver_tree</item>
+        <item>@string/pref_theme_value_grassy_green</item>
+        <item>@string/pref_theme_value_ship_cove</item>
+        <item>@string/pref_theme_value_indigo</item>
+        <item>@string/pref_theme_value_vivid_violet</item>
+        <item>@string/pref_theme_value_automatic</item>
+    </string-array>
+
+
+</resources>
