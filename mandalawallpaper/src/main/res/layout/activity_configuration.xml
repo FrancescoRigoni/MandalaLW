@@ -1,8 +1,45 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ConfigurationActivity">
+
+    <com.codebutchery.mandalawallpaper.WallpaperPreviewView
+        android:id="@+id/wpvPreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"/>
+
+    <Button
+        android:id="@+id/btDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:text="Done" />
+
+    <TextView
+        android:id="@+id/tvFPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:textSize="22dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignBottom="@id/btDone"
+        android:layout_alignTop="@id/btDone"/>
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btDone" />
 
 </RelativeLayout>

@@ -3,6 +3,14 @@
 
     <string name="app_name">Mandala Wallpaper Live</string>
     <string name="set_wallpaper_now">Set Wallpaper Now</string>
+    <string name="more_informations">More Informations</string>
+    <string name="thanks_for_installing"><![CDATA[Thanks for installing <b>Mandala Wallpaper</b>!<br>Use the button below to start using this amazing wallpaper!]]></string>
+
+    <string name="codebutchery_page_url">https://codebutchery.wordpress.com/mandala-live-wallpaper/</string>
+    <string name="warning_settings_too_heavy">The chosen settings are too heavy for your device, the Frames Per Second count in the bottom right corner should report at least %1$d FPS, if you keep this settings you may experience slowdowns while using this wallpaper. Try reducing the number of cells. Do you want to continue with this settings?</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <string name="pref_fill_shapes">Fill Shapes</string>
     <string name="pref_fill_shapes_key">fill_shapes</string>
@@ -19,11 +27,11 @@
     <string name="pref_shape_value_circles">circle</string>
 
     <string name="pref_spacing">Spacing</string>
-    <string name="pref_spacing_extreme">90%</string>
-    <string name="pref_spacing_large">75%</string>
-    <string name="pref_spacing_normal">50%</string>
-    <string name="pref_spacing_small">25%</string>
-    <string name="pref_spacing_nospacing">0%</string>
+    <string name="pref_spacing_extreme">Extreme</string>
+    <string name="pref_spacing_large">Large</string>
+    <string name="pref_spacing_normal">Normal</string>
+    <string name="pref_spacing_small">Small</string>
+    <string name="pref_spacing_nospacing">No Spacing</string>
 
     <string name="pref_spacing_key">cells_spacing</string>
     <string name="pref_spacing_value_extreme">extreme</string>
@@ -55,7 +63,7 @@
     <string name="pref_theme_ship_cove">Ship Cove</string>
     <string name="pref_theme_indigo">Indigo</string>
     <string name="pref_theme_vibrant_violet">Vibrant Violet</string>
-    <string name="pref_theme_automatic">Automatic</string>
+    <string name="pref_theme_automatic">Rainbow</string>
 
     <string name="pref_theme_key">theme</string>
     <string name="pref_theme_value_ruby_red">ruby_red</string>
@@ -67,5 +75,6 @@
     <string name="pref_theme_value_indigo">indigo</string>
     <string name="pref_theme_value_vivid_violet">vibrant_violet</string>
     <string name="pref_theme_value_automatic">automatic</string>
+    <string name="warning">Warning</string>
 
 </resources>

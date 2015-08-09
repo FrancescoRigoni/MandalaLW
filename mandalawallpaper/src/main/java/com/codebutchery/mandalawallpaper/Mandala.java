@@ -77,12 +77,6 @@ public class Mandala {
     // Currently displayed filter
     int[] mCurrentEffect = null;
 
-    // Timestamp of the last effect change
-    private long mLastEffectChangedTimestamp = 0;
-
-    // Time duration for each effect, in ms, changes every time
-    private long mMsForNextEffect = 1000;
-
     private int mColorHueMain;
     private boolean mAutomaticTheme;
 
@@ -108,6 +102,9 @@ public class Mandala {
         mAutomaticTheme = false;
 
         switch (theme) {
+            case AUTOMATIC:
+                mAutomaticTheme = true;
+                break;
             case RUBY_RED:
                 mColorHueMain = 0;
                 break;
@@ -132,14 +129,7 @@ public class Mandala {
             case VIVID_VIOLET:
                 mColorHueMain = 335;
                 break;
-            case AUTOMATIC:
-                mAutomaticTheme = true;
-                break;
         }
-    }
-
-    public void setAutomaticTheme(boolean active) {
-        mAutomaticTheme = active;
     }
 
     public void init(int width, int height, CellsAmount amount, CellsSpacing spacing) {
@@ -147,17 +137,17 @@ public class Mandala {
         mCellsAmount = amount;
         mCellsSpacing = spacing;
 
-        if (mCellsAmount == CellsAmount.FEW) mCellSizePx = width / 6;
-        else if (mCellsAmount == CellsAmount.NORMAL) mCellSizePx = width / 12;
-        else if (mCellsAmount == CellsAmount.MORE) mCellSizePx = width / 18;
-        else if (mCellsAmount == CellsAmount.EVEN_MORE) mCellSizePx = width / 24;
-        else if (mCellsAmount == CellsAmount.EXTREME) mCellSizePx = width / 32;
+        if (mCellsAmount == CellsAmount.FEW) mCellSizePx = width / 4;
+        else if (mCellsAmount == CellsAmount.NORMAL) mCellSizePx = width / 6;
+        else if (mCellsAmount == CellsAmount.MORE) mCellSizePx = width / 12;
+        else if (mCellsAmount == CellsAmount.EVEN_MORE) mCellSizePx = width / 18;
+        else if (mCellsAmount == CellsAmount.EXTREME) mCellSizePx = width / 24;
 
         if (mCellsSpacing == CellsSpacing.NO_SPACE) mCellsSpacingPx = 0;
         if (mCellsSpacing == CellsSpacing.SMALL) mCellsSpacingPx = (int) (mCellSizePx * 0.05);
         if (mCellsSpacing == CellsSpacing.NORMAL) mCellsSpacingPx = (int) (mCellSizePx * 0.15);
         if (mCellsSpacing == CellsSpacing.LARGE) mCellsSpacingPx = (int) (mCellSizePx * 0.25);
-        if (mCellsSpacing == CellsSpacing.EXTREME) mCellsSpacingPx = (int) (mCellSizePx * 0.95);
+        if (mCellsSpacing == CellsSpacing.EXTREME) mCellsSpacingPx = (int) (mCellSizePx * 0.40);
 
         mCellSizePx -= mCellsSpacingPx;
 
@@ -187,19 +177,6 @@ public class Mandala {
     public void drawNextStep(Canvas canvas) {
 
         canvas.drawColor(Color.BLACK);
-
-        // Have to change the effect?
-        if (System.currentTimeMillis() - mLastEffectChangedTimestamp > mMsForNextEffect) {
-
-            mLastEffectChangedTimestamp = System.currentTimeMillis();
-            mMsForNextEffect = 1000 * (new Random().nextInt(6) + 2);
-
-            if (mCurrentEffect == mEffect01) mCurrentEffect = mEffect02;
-            else if (mCurrentEffect == mEffect02) mCurrentEffect = mEffect03;
-            else if (mCurrentEffect == mEffect03) mCurrentEffect = mEffect04;
-            else if (mCurrentEffect == mEffect04) mCurrentEffect = mEffect01;
-
-        }
 
         canvas.translate(mInitialCanvasX, mInitialCanvasY);
 
@@ -258,7 +235,7 @@ public class Mandala {
                 float[] hsv = new float[]{(float) mColorHueMain, 0.7f, 0.5f};
                 int color = Color.HSVToColor(hsv);
 
-                // Different colors shades
+                // Convert to RGB
                 int colorRGB = Color.rgb((int) (Color.red(color) * sin),
                         (int) (Color.green(color) * sin),
                         (int) (Color.blue(color) * sin));
@@ -270,10 +247,12 @@ public class Mandala {
                 // Different sizes
                 if (mRandomCellsSize) radius *= (1 - sin);
 
+                float halfCellsSpacing = (mCellsSpacingPx / 2);
+                float cellSizePlusSpacing = (mCellSizePx + mCellsSpacingPx);
 
-                float top = (mCellsSpacingPx / 2) + (row - 1) * (mCellSizePx + mCellsSpacingPx);
+                float top = halfCellsSpacing + (row - 1) * cellSizePlusSpacing;
                 float bottom = top + mCellSizePx;
-                float left = (mCellsSpacingPx / 2) + (col - 1) * (mCellSizePx + mCellsSpacingPx);
+                float left = halfCellsSpacing + (col - 1) * cellSizePlusSpacing;
                 float right = left + mCellSizePx;
 
                 if (mShape == Shape.SHAPE_SQUARE) {
@@ -281,36 +260,7 @@ public class Mandala {
                 } else {
                     canvas.drawCircle(left + mCellSizePx / 2.0f, top + mCellSizePx / 2.0f, radius, mPaint);
                 }
-
-  /*
-                {
-                    // Rectangles
-
-                    float squareSizeReal = radius * 2;
-
-
-                    // different sizes
-//                top += (mSquareSizePx - squareSizeReal) / 2;
-//                left += (mSquareSizePx - squareSizeReal) / 2;
-//               bottom = top + squareSizeReal;
-//                right = left + squareSizeReal;
-//
-//
-                    canvas.drawRect(left, top, right, bottom, mPaint);
-
-                }
-
-                {
-                    // Circles
-
-                    // Different sizes
-
-                    // canvas.drawCircle(left + mSquareSizePx / 2.0f, top + mSquareSizePx / 2.0f, radius, mPaint);
-                }
-                */
             }
-
-
         }
 
         // Swap matrices
@@ -323,5 +273,4 @@ public class Mandala {
             mColorHueMain %= 360;
         }
     }
-
 }

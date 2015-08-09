@@ -10,13 +10,13 @@
 
     <CheckBoxPreference
         android:key="@string/pref_fill_shapes_key"
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:title="@string/pref_fill_shapes"></CheckBoxPreference>
 
-    <CheckBoxPreference
+    <!--<CheckBoxPreference
         android:key="@string/pref_random_cell_size_key"
         android:defaultValue="false"
-        android:title="@string/pref_random_cell_size"></CheckBoxPreference>
+        android:title="@string/pref_random_cell_size"></CheckBoxPreference>-->
 
     <ListPreference
         android:defaultValue="@string/pref_shape_value_squares"
@@ -26,14 +26,14 @@
         android:title="@string/pref_shape" />
 
     <ListPreference
-        android:defaultValue="@string/pref_cells_amount_normal"
+        android:defaultValue="@string/pref_cells_amount_more"
         android:entries="@array/amountListEntries"
         android:entryValues="@array/amountListValues"
         android:key="@string/pref_cells_amount_key"
         android:title="@string/pref_cells_amount" />
 
     <ListPreference
-        android:defaultValue="@string/pref_spacing_value_normal"
+        android:defaultValue="@string/pref_spacing_value_small"
         android:entries="@array/spacingsListEntries"
         android:entryValues="@array/spacingsListValues"
         android:key="@string/pref_spacing_key"

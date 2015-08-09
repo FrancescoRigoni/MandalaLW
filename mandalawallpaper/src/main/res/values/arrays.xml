@@ -44,6 +44,7 @@
     </string-array>
 
     <string-array name="themeListEntries">
+        <item>@string/pref_theme_automatic</item>
         <item>@string/pref_theme_ruby_red</item>
         <item>@string/pref_theme_vodoo_violet</item>
         <item>@string/pref_theme_barley_corn</item>
@@ -52,10 +53,11 @@
         <item>@string/pref_theme_ship_cove</item>
         <item>@string/pref_theme_indigo</item>
         <item>@string/pref_theme_vibrant_violet</item>
-        <item>@string/pref_theme_automatic</item>
+
     </string-array>
 
     <string-array name="themeListValues">
+        <item>@string/pref_theme_value_automatic</item>
         <item>@string/pref_theme_value_ruby_red</item>
         <item>@string/pref_theme_value_vodoo_violet</item>
         <item>@string/pref_theme_value_barley_corn</item>
@@ -64,7 +66,7 @@
         <item>@string/pref_theme_value_ship_cove</item>
         <item>@string/pref_theme_value_indigo</item>
         <item>@string/pref_theme_value_vivid_violet</item>
-        <item>@string/pref_theme_value_automatic</item>
+
     </string-array>
 
 
