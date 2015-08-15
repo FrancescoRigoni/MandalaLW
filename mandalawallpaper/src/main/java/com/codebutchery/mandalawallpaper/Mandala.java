@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import java.util.Random;
-
 /**
  * Created by Francesco Rigoni on 22/05/2015.
  * https://codebutchery.wordpress.com/
@@ -40,7 +38,7 @@ public class Mandala {
         SILVER_TREE,
         SHIP_COVE,
         INDIGO,
-        VODOO_VIOLET,
+        VOODOO_VIOLET,
         VIVID_VIOLET,
         AUTOMATIC
     }
@@ -68,14 +66,8 @@ public class Mandala {
     private short[][] mMatrixOne = null;
     private short[][] mMatrixTwo = null;
 
-    // Possible effects filters
-    int[] mEffect01 = new int[]{-1, +1, -1, -1, -1, -1, +1, +1, -1, +1};
-    int[] mEffect02 = new int[]{-1, +1, -1, -1, +1, +1, -1, -1, -1, +1};
-    int[] mEffect03 = new int[]{+1, -1, +1, -1, 0, +1, +1, 0, -1, +1};
-    int[] mEffect04 = new int[]{-1, +1, +1, -1, -1, -1, -1, +1, -1, -1};
-
     // Currently displayed filter
-    int[] mCurrentEffect = null;
+    int[] mCurrentEffect = new int[]{-1, +1, -1, -1, -1, -1, +1, +1, -1, +1};
 
     private int mColorHueMain;
     private boolean mAutomaticTheme;
@@ -83,7 +75,7 @@ public class Mandala {
     private float mInitialCanvasX = 0;
     private float mInitialCanvasY = 0;
 
-    private Paint mPaint = new Paint();
+    private Paint mPaint;
 
     public void setShape(Shape shape) {
         mShape = shape;
@@ -123,7 +115,7 @@ public class Mandala {
             case INDIGO:
                 mColorHueMain = 245;
                 break;
-            case VODOO_VIOLET:
+            case VOODOO_VIOLET:
                 mColorHueMain = 290;
                 break;
             case VIVID_VIOLET:
@@ -151,14 +143,14 @@ public class Mandala {
 
         mCellSizePx -= mCellsSpacingPx;
 
-        mPaint.setAntiAlias(true);
-
         mRowsCount = (int) ((height / (mCellSizePx + mCellsSpacingPx)) + 1);
         mColsCount = (int) ((width / (mCellSizePx + mCellsSpacingPx)) + 1);
 
         float realWidth = mColsCount * (mCellSizePx + mCellsSpacingPx);
         float realHeight = mRowsCount * (mCellSizePx + mCellsSpacingPx);
 
+        // The canvas has a negative offset in both dimensions
+        // so everything is centered correctly
         mInitialCanvasX = -(realWidth - width) / 2;
         mInitialCanvasY = -(realHeight - height) / 2;
 
@@ -170,18 +162,20 @@ public class Mandala {
         mMatrixOne = new short[mRowsCount][mColsCount];
         mMatrixTwo = new short[mRowsCount][mColsCount];
 
-        mCurrentEffect = mEffect01;
-
+        // Create the Paint
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
     }
 
     public void drawNextStep(Canvas canvas) {
 
         canvas.drawColor(Color.BLACK);
 
+        // Initial offset, this is required in order to have the wallpaper
+        // centered horizontally and vertically
         canvas.translate(mInitialCanvasX, mInitialCanvasY);
 
         for (int row = 1; row < mRowsCount - 1; row++) {
-
             for (int col = 1; col < mColsCount - 1; col++) {
 
                 int avg = 0;
@@ -194,7 +188,6 @@ public class Mandala {
                 avg += mMatrixOne[row + 1][col - 1];
                 avg += mMatrixOne[row + 1][col - 0];
                 avg += mMatrixOne[row + 1][col + 1];
-
                 avg /= 9;
 
                 if (avg == 0)
@@ -232,13 +225,14 @@ public class Mandala {
                     mPaint.setStrokeWidth((float) (mCellsSpacingPx * sin));
                 }
 
-                float[] hsv = new float[]{(float) mColorHueMain, 0.7f, 0.5f};
-                int color = Color.HSVToColor(hsv);
+                // Saturation and Value factors are hardcoded for now...
+                float[] hsv = new float[]{(float) mColorHueMain, (float)sin * 0.7f, (float)sin * 0.5f};
+                int HSVColor = Color.HSVToColor(hsv);
 
                 // Convert to RGB
-                int colorRGB = Color.rgb((int) (Color.red(color) * sin),
-                        (int) (Color.green(color) * sin),
-                        (int) (Color.blue(color) * sin));
+                int colorRGB = Color.rgb((int) (Color.red(HSVColor)   * sin),
+                                         (int) (Color.green(HSVColor) * sin),
+                                         (int) (Color.blue(HSVColor)  * sin));
 
                 mPaint.setColor(colorRGB);
 

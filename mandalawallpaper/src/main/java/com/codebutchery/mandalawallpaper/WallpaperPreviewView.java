@@ -1,16 +1,14 @@
 package com.codebutchery.mandalawallpaper;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.text.Html;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.TextView;
 
 /**
- * Created by francesco on 09/08/15.
+ * Created by Francesco Rigoni on 22/05/2015.
+ * https://codebutchery.wordpress.com/
  */
 public class WallpaperPreviewView extends SurfaceView implements SurfaceHolder.Callback, MandalaEngine.FPSListener {
 

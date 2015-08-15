@@ -9,7 +9,8 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 
 /**
- * Created by francesco on 09/08/15.
+ * Created by Francesco Rigoni on 22/05/2015.
+ * https://codebutchery.wordpress.com/
  */
 public class MandalaEngine implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -23,7 +24,7 @@ public class MandalaEngine implements SharedPreferences.OnSharedPreferenceChange
         Mandala.CellsAmount cellsAmount = Mandala.CellsAmount.MORE;
 
         // Configure cells amount
-        if (cellsAmountPref.equals(c.getString(R.string.pref_cells_amount_few))) cellsAmount = Mandala.CellsAmount.FEW;
+        if (cellsAmountPref.equals(c.getString(R.string.pref_cells_amount_value_few))) cellsAmount = Mandala.CellsAmount.FEW;
         else if (cellsAmountPref.equals(c.getString(R.string.pref_cells_amount_value_normal))) cellsAmount = Mandala.CellsAmount.NORMAL;
         else if (cellsAmountPref.equals(c.getString(R.string.pref_cells_amount_value_more))) cellsAmount = Mandala.CellsAmount.MORE;
         else if (cellsAmountPref.equals(c.getString(R.string.pref_cells_amount_value_even_more))) cellsAmount = Mandala.CellsAmount.EVEN_MORE;
@@ -51,7 +52,7 @@ public class MandalaEngine implements SharedPreferences.OnSharedPreferenceChange
         else if (themePref.equals(c.getString(R.string.pref_theme_value_grassy_green))) mandala.setTheme(Mandala.ColorTheme.GRASSY_GREEN);
         else if (themePref.equals(c.getString(R.string.pref_theme_value_ship_cove))) mandala.setTheme(Mandala.ColorTheme.SHIP_COVE);
         else if (themePref.equals(c.getString(R.string.pref_theme_value_indigo))) mandala.setTheme(Mandala.ColorTheme.INDIGO);
-        else if (themePref.equals(c.getString(R.string.pref_theme_value_vodoo_violet))) mandala.setTheme(Mandala.ColorTheme.VODOO_VIOLET);
+        else if (themePref.equals(c.getString(R.string.pref_theme_value_vodoo_violet))) mandala.setTheme(Mandala.ColorTheme.VOODOO_VIOLET);
         else if (themePref.equals(c.getString(R.string.pref_theme_value_vivid_violet))) mandala.setTheme(Mandala.ColorTheme.VIVID_VIOLET);
 
         // Configure shape
@@ -90,7 +91,7 @@ public class MandalaEngine implements SharedPreferences.OnSharedPreferenceChange
     private int mHeight;
 
     private long mFPSCounterTimestamp;
-    private int mLastFPS;
+    private int mLastFPSCount;
 
     public static final float DESIRED_FRAMES_PER_SECOND = 30f;
     private static final float FRAME_FREQUENCY_MS = 1000f / DESIRED_FRAMES_PER_SECOND;
@@ -103,27 +104,25 @@ public class MandalaEngine implements SharedPreferences.OnSharedPreferenceChange
             // Needs FPS update?
             long currentTimestamp = System.currentTimeMillis();
             if (currentTimestamp - mFPSCounterTimestamp >= 1000) {
-                if (mFPSListener != null) mFPSListener.onFPSUpdate(mLastFPS);
-                mLastFPS = 0;
+                if (mFPSListener != null) mFPSListener.onFPSUpdate(mLastFPSCount);
+                mLastFPSCount = 0;
                 mFPSCounterTimestamp = currentTimestamp;
             }
 
-            mLastFPS++;
+            mLastFPSCount++;
 
             Canvas canvas = mSurfaceHolder.lockCanvas();
             if (canvas == null) {
                 Log.e(TAG, "Canvas is null");
                 return;
             }
-            mMandala.drawNextStep(canvas);
 
+            mMandala.drawNextStep(canvas);
             mSurfaceHolder.unlockCanvasAndPost(canvas);
 
             long timestampAtEndMs = System.currentTimeMillis();
             long elapsedTimeMs = timestampAtEndMs - timestampAtStartMs;
             long nextFrameDelayMs = (long) (FRAME_FREQUENCY_MS - elapsedTimeMs);
-
-            // Log.e("---", "regular: " + FRAME_FREQUENCY_MS + " elapsedTimeMs: " + elapsedTimeMs + " nextFrameDelayMs: " + nextFrameDelayMs);
 
             mAnimationHandler.postDelayed(this, nextFrameDelayMs);
         }
@@ -157,13 +156,13 @@ public class MandalaEngine implements SharedPreferences.OnSharedPreferenceChange
     public void stopAnimating() {
         mAnimationHandler.removeCallbacks(mAnimationRunnable);
         mFPSCounterTimestamp = 0;
-        mLastFPS = 0;
+        mLastFPSCount = 0;
     }
 
     public void resumeAnimating() {
         mAnimationHandler.post(mAnimationRunnable);
         mFPSCounterTimestamp = System.currentTimeMillis();
-        mLastFPS = 0;
+        mLastFPSCount = 0;
     }
 
     @Override

@@ -16,6 +16,8 @@ public class MandalaWallpaperService extends WallpaperService {
         @Override
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
+            if (mMandalaEngine != null) mMandalaEngine.stopAnimating();
+
             mMandalaEngine = new MandalaEngine(MandalaWallpaperService.this, width, height);
             mMandalaEngine.create(holder);
 

@@ -12,7 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by francesco on 02/08/15.
+ * Created by Francesco Rigoni on 22/05/2015.
+ * https://codebutchery.wordpress.com/
  */
 public class MandalaWallpaperIntroActivity extends Activity {
 

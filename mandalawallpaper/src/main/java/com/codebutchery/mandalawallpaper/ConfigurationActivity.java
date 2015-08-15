@@ -6,16 +6,15 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.text.Html;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 
-
+/**
+ * Created by Francesco Rigoni on 22/05/2015.
+ * https://codebutchery.wordpress.com/
+ */
 public class ConfigurationActivity extends Activity implements MandalaEngine.FPSListener {
 
     public static class PFragment extends PreferenceFragment {

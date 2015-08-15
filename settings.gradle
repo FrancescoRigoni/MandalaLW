@@ -1,1 +1,1 @@
-include ':app', ':mandalawallpaper'
+include ':mandalawallpaper'
