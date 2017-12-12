@@ -76,5 +76,6 @@
     <string name="pref_theme_value_vivid_violet">vibrant_violet</string>
     <string name="pref_theme_value_automatic">automatic</string>
     <string name="warning">Warning</string>
+    <string name="title_activity_development">DevelopmentActivity</string>
 
 </resources>
