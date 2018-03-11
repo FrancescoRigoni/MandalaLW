@@ -1,6 +1,14 @@
+gradlew
+.idea/misc.xml
+../MandalaLW.iml
 .gradle
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
 /build
+.idea/modules.xml
+build.gradle
+mandalawallpaper/build.gradle
+mandalawallpaper/mandalawallpaper.iml
+MandalaLW.iml
